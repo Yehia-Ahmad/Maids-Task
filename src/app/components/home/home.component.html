@@ -1,1 +1,21 @@
-<p>home works!</p>
+<app-nav></app-nav>
+<div class="home-container" *ngIf="!(loading$ | async)">
+  <div class="cards-container">
+    <mat-card *ngFor="let item of data$">
+      <div (click)="getCardDetails(item.id)">
+        <img class="mat-card-image" mat-card-image [src]="item.avatar" alt="avatar image">
+        <mat-card-header>
+          <mat-card-title>{{item.first_name}} {{item.last_name}}</mat-card-title>
+        </mat-card-header>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="pagination-container">
+    <mat-icon (click)="prevousPage()">chevron_left</mat-icon>
+    <span class="page-number">{{pageNum}}</span>
+    <mat-icon (click)="nextPage()">chevron_right</mat-icon>
+  </div>
+</div>
+
+<app-loading *ngIf="loading$ | async"></app-loading>

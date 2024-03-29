@@ -13,4 +13,8 @@ export class ApiService {
   getPeopleDetails(urlParameter: string): Observable<object> {
     return this.http.get(`${env.BASE_URL}` + urlParameter);
   }
+
+  getElementByID(id: string): Observable<object> {
+    return this.http.get(`${env.BASE_URL}/` + id);
+  }
 }
