@@ -7,8 +7,6 @@ import { LoadingService } from './services/loading.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'my-angular-app';
-  loading$ = this.loader.loading$;
 
-  constructor(public loader: LoadingService) { }
+  constructor() { }
 }
