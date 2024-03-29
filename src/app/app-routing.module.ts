@@ -6,10 +6,6 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 
 const routes: Routes = [
   {
-    path: '**',
-    redirectTo: 'home'
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -21,6 +17,10 @@ const routes: Routes = [
   {
     path: 'user-details/:id',
     component: UserDetailsComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ];
 
