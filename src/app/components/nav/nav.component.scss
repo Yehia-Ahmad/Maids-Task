@@ -7,6 +7,11 @@
   padding: 0 20px;
   background-color: $color-primary;
   height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 
   &>.title {
     font-size: 1.3rem;
@@ -14,20 +19,22 @@
     font-weight: bold;
   }
 
-  &>input {
-    width: 225px;
-    height: 25px;
-    border-radius: 5px;
-    color: #5d6c85;
-    padding: 0 10px;
-    border: unset;
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
+  &>.search-form {
+    &>input {
+      width: 225px;
+      height: 25px;
+      border-radius: 5px;
       color: #5d6c85;
+      padding: 0 10px;
+      border: unset;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #5d6c85;
+      }
     }
   }
 

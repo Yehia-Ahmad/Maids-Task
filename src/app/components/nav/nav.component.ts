@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-nav',
@@ -6,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  userId: string;
+  searchForm = new FormGroup({
+    userId: new FormControl(''),
+  });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  getElementByID() {
+    let userId = this.searchForm.get('userId').value;
+    return this.router.navigate([`./user-details/${userId}`]);
   }
 
 }

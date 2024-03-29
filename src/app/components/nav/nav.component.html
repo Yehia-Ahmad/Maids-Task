@@ -1,4 +1,6 @@
 <nav class="nav-bar">
   <span class="title">SW App</span>
-  <input [(ngModel)]="userId" placeholder="User ID" type="text">
+  <form class="search-form" [formGroup]="searchForm" (ngSubmit)="getElementByID()">
+    <input formControlName="userId" placeholder="User ID" type="text">
+  </form>
 </nav>
