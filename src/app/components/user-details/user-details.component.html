@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<div class="user-details-container" *ngIf="!(loading$ | async)">
+<div class="user-details-container" *ngIf="!((loading$ | async)||isError)">
   <mat-card>
     <div>
       <img class="mat-card-image" mat-card-image [src]="data$.avatar" alt="avatar image">
@@ -20,3 +20,4 @@
 </div>
 
 <app-loading *ngIf="loading$ | async"></app-loading>
+<app-not-found *ngIf="isError"></app-not-found>

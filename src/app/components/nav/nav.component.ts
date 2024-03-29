@@ -22,4 +22,10 @@ export class NavComponent implements OnInit {
     return this.router.navigate([`./user-details/${userId}`]);
   }
 
+  isValidInputWithNumbersOnly() {
+    const regex = new RegExp(/^[0-9]*$/);
+    console.log(regex.test(this.searchForm.get('userId').value));
+    return regex.test(this.searchForm.get('userId').value);
+  }
+
 }

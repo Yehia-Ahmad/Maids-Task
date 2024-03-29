@@ -12,6 +12,7 @@ export class UserDetailsComponent implements OnInit {
   data$: any;
   pageNum: number = 1;
   totalPages: number;
+  isError: boolean = false;
   loading$ = this.loader.loading$;
 
   constructor(private api: ApiService, private loader: LoadingService, private router: Router, private activatedRoute: ActivatedRoute) { }
@@ -26,6 +27,9 @@ export class UserDetailsComponent implements OnInit {
   getCardDetails(id: string) {
     this.api.getElementByID(id).subscribe((res: any) => {
       this.data$ = res.data;
+      this.isError = false;
+    }, (error) => {
+      this.isError = true;
     });
   }
 
